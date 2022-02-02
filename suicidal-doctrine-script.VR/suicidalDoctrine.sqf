@@ -5,6 +5,7 @@
 	by thy (@aldolammel)
 	Github: https://github.com/aldolammel/Arma-3-Suicidal-Doctrine-Script
 	Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2739692983
+	Important: you will need the CBA+ACE mods.
 	
 	
 */ ---------------------
