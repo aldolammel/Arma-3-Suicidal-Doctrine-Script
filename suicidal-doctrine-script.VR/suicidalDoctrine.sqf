@@ -3,7 +3,7 @@
 
 	SUICIDAL DOCTRINE (Version 1.0)
 	by thy (@aldolammel)
-	Github: https://github.com/aldolammel
+	Github: https://github.com/aldolammel/Arma-3-Suicidal-Doctrine-Script
 	Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2739692983
 	
 	
@@ -30,7 +30,7 @@
 		/* if vbied fuel is infinite */ 							_isVbiedInfinityFuel 	= true; 				// true = infinity fuel / false = limited
 		/* if not signal, suicide will try to find out */			_tryToFindSignal 		= true; 				// true = try to find / false = don't try
 		/* range of suicide remote-trigger */						_remoteTriggerRange		= 1000;					// in mts between suicidal and vbied (at least 100m + than _vbiedDangerouslyClose) (default 1000)
-		/* when the suicide detects the player */			 		_vbiedDangerouslyClose 	= 200;					// in mts close to the target (default 100)
+		/* when the suicide detects the player */			 		_vbiedDangerouslyClose 	= 200;					// in mts close to the target (default 200)
 		/* when vbied blows up */ 									_vbiedDeadlyClose 		= 20; 					// in mts close to the target (at least 30m less than _vbiedDangerouslyClose) (default 20)
 	/* Deadman Trigger method */
 		/* which vest will contain the explosive */ 				_dmtVestIed				= "V_Chestrig_blk";		// vest name
