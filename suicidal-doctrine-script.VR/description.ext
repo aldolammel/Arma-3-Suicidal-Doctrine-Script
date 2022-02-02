@@ -1,0 +1,45 @@
+// MISSION CONFIGS
+class Header {
+	gameType 			= Sandbox; 	
+	minPlayers			= 1;		
+	maxPlayers			= 12;
+};
+
+	// About
+	onLoadName 			= "SUICIDAL DOCTRINE SCRIPT";
+	author 				= "thy"; 						
+	overviewPicture 	= "images\thumb.jpg"; 			
+	onLoadMission 		= "This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not."; 
+
+	// Gameplay
+	joinUnassigned 		= 1;
+	respawnButton 		= 0;
+	respawnDialog 		= 0;
+	debriefing 			= 0;
+	saving 				= 0;
+	enableDebugConsole 	= 1;
+	
+	// Performance
+	DisabledAI				= 1;
+	corpseManagerMode 		= 1;
+	corpseLimit 			= 0;
+	corpseRemovalMinTime	= 60;
+	corpseRemovalMaxTime 	= 120;
+	wreckManagerMode 		= 1;
+	wreckLimit 				= 0;
+	wreckRemovalMinTime 	= 60;
+	wreckRemovalMaxTime 	= 120;
+	
+// CBA MOD
+cba_settings_hasSettingsFile = 0;
+
+// CUSTOMIZED SOUNDS 
+class CfgRadio {
+	sounds[]={};
+
+	class suicideCry {
+		name = "suicideCry";
+		sound[] = {"sounds\suicideCry.ogg", db+3, 1.0};
+		title = "";
+	};
+};
