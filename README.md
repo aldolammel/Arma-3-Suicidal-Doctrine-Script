@@ -73,7 +73,9 @@ This script brings some methods of mid-east suicidal doctrine. Through the only 
 - If the suicidal is handcuffed, any backpack or vest will be removed from them;
 - If the suicidal is handcuffed and later released, the suicide will be NOT able to detonate the vest;
 
-Ideas or fix?
+...............
+
+# Ideas or fix?
 https://forums.bohemia.net/forums/topic/237502-release-suicidal-doctrine-script/
 
 Cheers, 
