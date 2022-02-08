@@ -26,7 +26,7 @@ if (!isServer) exitWith {};     // if is not any type of server, get out!
 		_debugMonitor = true;     // ................... true = show the debug monitor only on server/player hosting / false = off.
 		
 	// Basic config:
-		_suicidalMethod = 1;     // .................... 1 = vbied will be the suicidal method / 2 = deadman trigger.
+		_suicidalMethod = 1;     // .................... 1 = vbied will be the suicidal method / 2 = deadman trigger / 3 = classic suicide bomber
 		_deathShout = "suicideCry";     // ............. sound name (sounds folder and description.ext file) of the suicidal cry.
 		_suicidalTargets = 1;     // ................... 0 = suicidal attack any enemy / 1 = only playables / 2 = only players / 3 = only one target.
 			_suicidalEnemy = blufor;     // ............ sets the suicide side between: blufor / opfor / independent / civilian.
