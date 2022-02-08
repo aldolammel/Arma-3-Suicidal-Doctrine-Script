@@ -1,4 +1,4 @@
-# Arma-3-Suicidal-Doctrine-Script
+# Arma-3-Suicidal-Doctrine-Script v1.2
 This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not. Some images on Steam Workshop.
 Below, the AI behaviors through the methods:
 
