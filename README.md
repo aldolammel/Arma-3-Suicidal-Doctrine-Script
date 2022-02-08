@@ -1,8 +1,11 @@
 # Arma-3-Suicidal-Doctrine-Script
-This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not.
+This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not. Some images on Steam Workshop.
+Below, the AI behaviors through the methods:
+
+...............
 
 **VBIED METHOD**
-- A suicide operator steers the vehicle-bomb (VBIED) to a target and, at the right moment, a remote detonation trigger is pressed by the suicide;
+- A suicide operator steers the vehicle-bomb (VBIED) to a target and, at the right moment, a remote detonation trigger is pressed by the suicide.
 
 **Ways to detonate:**
 - If the suicidal AI responsible for the VBIED presses the detonation trigger;
@@ -10,7 +13,7 @@ This script brings some methods of mid-east suicidal doctrine. Through the only 
 
 **Ways to NOT detonate:**
 - Killing the suicidal AI before detonation;
-- Capture (handcuff) the suicide when (and if) dismounted;
+- Capture (handcuff) the suicidal when (and if) dismounted;
 - No player approaching the VBIED;
 
 **Rules:**
@@ -45,16 +48,18 @@ This script brings some methods of mid-east suicidal doctrine. Through the only 
 - If the dismounted suicidal has NO signal on the remote-trigger, the suicidal will try (or not) to look for a signal, getting closer to the VBIED;
 - If the dismounted suicidal has NO signal on the remote-trigger and recovers signal, if the player is too close to the VBIED, the VBIED will explode;
 
+...............
+
 **DEAD MAN TRIGGER METHOD**
-- A suicide operator wears a suicidal belt/vest and detonates theirself by releasing a reverse-pressure trigger.
+- A suicidal operator wears a suicidal belt/vest and detonates theirself by releasing a reverse-pressure trigger.
 
 **Ways to detonate:**
-- If the AI commits suicide, with the detonator activated, release the detonation trigger.
+- If the AI kill itself, with the detonator activated, release the detonation trigger.
 - If the suicidal AI, with the detonator activated, is killed.
 - If the suicidal AI, with the detonator activated, becomes incapacitated or unconscious.
 
 **Ways to NOT detonate:**
-- No player approaching the suicide;
+- No player approaching the suicidal;
 - Capture (handcuff) the suicide before he released the trigger (you're so dead!);
 
 **Rules:**
@@ -68,6 +73,32 @@ This script brings some methods of mid-east suicidal doctrine. Through the only 
 - If the suicidal has the vest activated and receives a lethal shot, the trigger will be released and the vest will explode, with or without player close.
 - If the suicidal is incapacitated or unconscious, there will be a random delay between 3 to 7 seconds, the trigger will be released and the vest will explode.
 - If the suicidal is killed, with a random delay between 1 to 4 seconds, the trigger will be released and the vest will explode.
+- If the suicidal is handcuffed, the suicidal will be impatience to detonate the vest;
+- If the suicidal is handcuffed, any cosmetic on his head will be replaced by a blindfold;
+- If the suicidal is handcuffed, any backpack or vest will be removed from them;
+- If the suicidal is handcuffed and later released, the suicide will be NOT able to detonate the vest;
+
+...............
+
+**CLASSIC SUICIDE BOMBER METHOD**
+- A suicide operator wears a suicidal belt/vest and detonates theirself by pressing a trigger.
+
+**Ways to detonate:**
+- If the AI kill itself, releasing the detonation trigger.
+
+**Ways to NOT detonate:**
+- Killing the suicidal through a decent distance;
+- No player approaching when the suicidal still alive;
+- Capture (handcuff) the suicidal before they press the trigger (you're so dead!);
+
+**Rules:**
+- The suicidal will NOT have any kind of firearm. If so, this will be automatically removed;
+- If the target enters the suicidal's action range, the suicidal will run towards the target, pressing the trigger when close to detonate.
+- If the target enters the suicidal's action range, and the suicidal is on boarded in a vehicle, the suicidal will dismount and run towards the target, pressing the trigger when close to detonate.
+- If the suicidal receives a lethal shot, the vest will NOT explode.
+- If the suicidal detects the target, the suicidal will waiting for the target to approach.
+- If the suicidal is incapacitated or unconscious, the vest will NOT explode.
+- If the suicidal is killed by some distance, the vest will NOT explode.
 - If the suicidal is handcuffed, the suicidal will be impatience to detonate the vest;
 - If the suicidal is handcuffed, any cosmetic on his head will be replaced by a blindfold;
 - If the suicidal is handcuffed, any backpack or vest will be removed from them;
