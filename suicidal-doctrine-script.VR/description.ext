@@ -20,15 +20,15 @@ class Header {
 	enableDebugConsole 	= 1;
 	
 	// Performance
-	DisabledAI				= 1;
+	DisabledAI				= 0;
 	corpseManagerMode 		= 1;
 	corpseLimit 			= 0;
-	corpseRemovalMinTime	= 60;
-	corpseRemovalMaxTime 	= 120;
+	corpseRemovalMinTime	= 600;
+	corpseRemovalMaxTime 	= 1200;
 	wreckManagerMode 		= 1;
 	wreckLimit 				= 0;
-	wreckRemovalMinTime 	= 60;
-	wreckRemovalMaxTime 	= 120;
+	wreckRemovalMinTime 	= 600;
+	wreckRemovalMaxTime 	= 1200;
 	
 // CBA MOD
 cba_settings_hasSettingsFile = 0;
