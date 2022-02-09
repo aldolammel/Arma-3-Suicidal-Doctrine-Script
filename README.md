@@ -2,6 +2,13 @@
 This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not. Some images on Steam Workshop.
 Below, the AI behaviors through the methods:
 
+**What to expect from this script AI**
+
+With just one unit, it's automatically able to: 
+- act through a VBIED with its specific behaviors;
+- act as a deadman trigger with its specific behaviors;
+- act as a suicide bomber with its specific behaviors.
+
 ...............
 
 **VBIED METHOD**
