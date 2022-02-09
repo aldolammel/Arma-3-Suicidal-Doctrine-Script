@@ -88,7 +88,7 @@ With just one unit, it's automatically able to:
 ...............
 
 **CLASSIC SUICIDE BOMBER METHOD**
-- A suicide operator wears a suicidal belt/vest and detonates theirself by pressing a trigger.
+- A suicide operator wears a suicidal belt/vest and detonates themself by pressing a trigger.
 
 **Ways to detonate:**
 - If the AI kill itself, releasing the detonation trigger.
