@@ -111,15 +111,8 @@ With just one unit, it's automatically able to:
 - If the suicidal is handcuffed, any backpack or vest will be removed from them;
 - If the suicidal is handcuffed and later released, the suicide will be NOT able to detonate the vest;
 
-...............
-
 # Ideas or fix?
 https://forums.bohemia.net/forums/topic/237502-release-suicidal-doctrine-script/
-
-Cheers, 
-thy
-
-...............
 
 # Changelog
 
