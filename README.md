@@ -1,4 +1,6 @@
 # Arma 3: Suicidal Doctrine script v1.2
+>*Dependencies: CBA + ACE.*
+
 This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not. Some images on Steam Workshop.
 Below, the AI behaviors through the methods:
 
@@ -11,7 +13,7 @@ With just one unit, it's automatically able to:
 
 ...............
 
-**VBIED METHOD**
+### VBIED METHOD
 - A suicide operator steers the vehicle-bomb (VBIED) to a target and, at the right moment, a remote detonation trigger is pressed by the suicide.
 
 **Ways to detonate:**
@@ -57,7 +59,7 @@ With just one unit, it's automatically able to:
 
 ...............
 
-**DEAD MAN TRIGGER METHOD**
+### DEAD MAN TRIGGER METHOD
 - A suicidal operator wears a suicidal belt/vest and detonates theirself by releasing a reverse-pressure trigger.
 
 **Ways to detonate:**
@@ -87,7 +89,7 @@ With just one unit, it's automatically able to:
 
 ...............
 
-**CLASSIC SUICIDE BOMBER METHOD**
+### CLASSIC SUICIDE BOMBER METHOD
 - A suicide operator wears a suicidal belt/vest and detonates themself by pressing a trigger.
 
 **Ways to detonate:**
@@ -111,10 +113,10 @@ With just one unit, it's automatically able to:
 - If the suicidal is handcuffed, any backpack or vest will be removed from them;
 - If the suicidal is handcuffed and later released, the suicide will be NOT able to detonate the vest;
 
-# Ideas or fix?
+## Ideas or fix?
 https://forums.bohemia.net/forums/topic/237502-release-suicidal-doctrine-script/
 
-# Changelog
+## Changelog
 
 **v1.2 - Feb, 8th 2022**
 
