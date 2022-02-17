@@ -33,6 +33,10 @@ class Header {
 // CBA MOD
 cba_settings_hasSettingsFile = 0;
 
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ONLY THIS DOWN BELOW WILL BE USE BY SUICIDAL DOCTRINE SCRIPT. THE CODE ABOVE YOU DONT NEED AT ALL!
 // CUSTOMIZED SOUNDS 
 class CfgRadio {
 	sounds[]={};
