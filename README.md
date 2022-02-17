@@ -1,4 +1,4 @@
-# Arma 3: Suicidal Doctrine script v1.2
+# Arma 3: Suicidal Doctrine script v1.3
 >*Dependencies: CBA + ACE.*
 
 This script brings some methods of mid-east suicidal doctrine. Through the only one .sqf the mission editor is able to control which method their suicidal unit will use, just flagging it on code available. This is ready for multiplayer and single player, as well as dedicated servers or not. Some images on Steam Workshop.
@@ -117,6 +117,12 @@ With just one unit, it's automatically able to:
 https://forums.bohemia.net/forums/topic/237502-release-suicidal-doctrine-script/
 
 ## Changelog
+
+**v1.3 - Feb, 17th 2022**
+- Calling the script through initPlayerLocal.sqf istead of initServer.sqf (fixing desync nearest targeting in dedicated servers);
+- VBIED with mega explosion (5x bigger than before) even if the VBIED has the same ammo of other suicide methods (a car will be much more loaded of explosives than a vest/best);
+- fixed the "suicidalEnemy" variable description (it the suicidal enemy side and not the suicidal side);
+- added a note in description.ext saying just a piece of that file is needed by script.
 
 **v1.2 - Feb, 8th 2022**
 
