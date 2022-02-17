@@ -2,7 +2,7 @@
 /* 
 
 
-	SUICIDAL DOCTRINE (Version 1.2)
+	SUICIDAL DOCTRINE (Version 1.3)
 	by thy (@aldolammel)
 	Important: you need CBA+ACE mods.
 	
@@ -16,49 +16,49 @@
 */
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-private ["_debugMonitor","_suicidalMethod","_deathShout","_suicidalEnemy","_suicidalTargets","_specialTarget","_suicidal","_vbied","_vbiedAmmo","_weldedDoors","_suicidalCanDrive","_vbiedNoWreck","_isVbiedInfinityFuel","_tryToFindSignal","_remoteTriggerRange","_vbiedActRange","_vbiedDeadRange","_dmtVestIed","_dmtVestIedAmmo","_dmtActRange","_dmtDeadRange","_csbVestIed","_csbVestIedAmmo","_csbActRange","_csbDeadRange","_csbVestDetonated","_vbiedDetonated","_dmtVestDetonated","_isSignalOn","_targetDistance","_isSuicidalCuffed","_isDmtVestActivated","_threatPos","_targetNearest","_onboardForever"]; 
+private ["_debugMonitor","_suicidalMethod","_deathShout","_suicidalEnemy","_suicidalTargets","_specialTarget","_suicidal","_vbied","_vbiedAmmo","_weldedDoors","_suicidalCanDrive","_vbiedNoWreck","_isVbiedInfinityFuel","_tryToFindSignal","_remoteTriggerRange","_vbiedActRange","_vbiedDeadRange","_dmtVestIed","_dmtVestIedAmmo","_dmtActRange","_dmtDeadRange","_csbVestIed","_csbVestIedAmmo","_csbActRange","_csbDeadRange","_csbVestDetonated","_vbiedDetonated","_dmtVestDetonated","_isSignalOn","_targetDistance","_isSuicidalCuffed","_isDmtVestActivated","_threatPos","_targetNearest","_onboardForever","_bNorth","_bEast","_bSouth","_bWest"]; 
 
-if (!isServer) exitWith {};     // if is not any type of server, get out!
+//if (!hasInterface) exitWith {};     // if is NOT a player, get out! P.S: this line is no needed if you're calling the suicidalDoctrine.sqf through the initPlayerLocal.sqf
 
 // EDITOR OPTIONS:
 
 	// Debug monitors:
-		_debugMonitor = true;     // ................... true = show the debug monitor only on server/player hosting / false = off.
+		_debugMonitor       = true;     // ............. true = show the debug monitor only on server/player hosting / false = off.
 		
 	// Basic config:
-		_suicidalMethod = 1;     // .................... 1 = vbied will be the suicidal method / 2 = deadman trigger / 3 = classic suicide bomber
-		_deathShout = "suicideCry";     // ............. sound name (sounds folder and description.ext file) of the suicidal cry.
-		_suicidalTargets = 1;     // ................... 0 = suicidal attack any enemy / 1 = only playables / 2 = only players / 3 = only one target.
-			_suicidalEnemy = blufor;     // ............ sets the suicide side between: blufor / opfor / independent / civilian.
-			_specialTarget = theTarget;     // ......... a object, vehicle or unit name that's the target valid only for option number 3 above.
-		_suicidal = suicidal;     // ................... who will be the suicidal unit, the unit name.
+		_suicidalMethod     = 1;     // ................ 1 = vbied will be the suicidal method / 2 = deadman trigger / 3 = classic suicide bomber
+		_deathShout         = "suicideCry";     // ..... sound name (sounds folder and description.ext file) of the suicidal cry.
+		_suicidalTargets    = 1;     // ................ 0 = suicidal attack any enemy / 1 = only playables / 2 = only players / 3 = only one target.
+			_suicidalEnemy  = blufor;     // ........... sets who is the suicidal enemy side: blufor / opfor / independent / civilian.
+			_specialTarget  = theTarget;     // ........ a object, vehicle or unit name that's the target valid only for option number 3 above.
+		_suicidal           = suicidal;     // ......... who will be the suicidal unit, the unit name.
 		
 	// Vbied method config:
-		_vbied = vbied01;     // ....................... which vehicle is vbied, the vehicle name.
-		_vbiedAmmo = "Bomb_04_F";     // ............... what's vbied's explosive, ammo name.
-		_weldedDoors = false;     // ................... true = doors are welded, if suicidal onboard, cant getout; if out, will use the remote-trigger / false = not welded. 
-		_suicidalCanDrive = true;     // ............... true = yes / false = no.if the suicide can take the wheel.
-		_vbiedNoWreck = false;     // .................. true = delete the wreck immediately after the explosion / false = by mission performance settings.
+		_vbied              = vbied01;     // .......... which vehicle is vbied, the vehicle name.
+		_vbiedAmmo          = "Bomb_04_F";     // ...... what's vbied's explosive, ammo name.
+		_weldedDoors        = true;     // ............. true = doors are welded, if suicidal onboard, cant getout; if out, will use the remote-trigger / false = not welded. 
+		_suicidalCanDrive   = true;     // ............. true = yes / false = no.if the suicide can take the wheel.
+		_vbiedNoWreck       = false;     // ............ true = delete the wreck immediately after the explosion / false = by mission performance settings.
 		_isVbiedInfinityFuel = true;     // ............ true = vbied has infinity fuel / false = limited fuel.
-		_tryToFindSignal = true;     // ................ true = suicidal will try to find the signal if they're out of vbied / false = don't try.
+		_tryToFindSignal    = true;     // ............. true = suicidal will try to find the signal if they're out of vbied / false = don't try.
 		_remoteTriggerRange = 1000;     // ............. suicidal remote-trigger range when (and if) out of vbied. Default is 1000 meters.
-		_vbiedActRange = 200;     // ................... suicidal in this method detects any target in this range. Default is 200 meters.
-		_vbiedDeadRange = 20;     // ................... Limit range from the target to suicidal detonate their explosives. Default is 20 meters.
+		_vbiedActRange      = 200;     // .............. suicidal in this method detects any target in this range. Default is 200 meters.
+		_vbiedDeadRange     = 20;     // ............... limit range from the target to suicidal detonate their explosives. Default is 20 meters.
 		
 	// Deadman Trigger method config:
-		_dmtVestIed = "V_Chestrig_blk";     // ......... which vest will contain the explosive, the vest name.
+		_dmtVestIed     = "V_Chestrig_blk";     // ..... which vest will contain the explosive, the vest name.
 		_dmtVestIedAmmo = "Rocket_03_HE_F";     // ..... what's vest's explosive, the ammo name.
-		_dmtActRange = 80;     // ...................... suicidal in this method detects any target in this range. Default is 80 meters.
-		_dmtDeadRange = 10;     // ..................... Limit range from the target to suicidal detonate their explosives. Default is 10 meters.
+		_dmtActRange    = 80;     // ................... suicidal in this method detects any target in this range. Default is 80 meters.
+		_dmtDeadRange   = 10;     // ................... Limit range from the target to suicidal detonate their explosives. Default is 10 meters.
 		
 	// Classic suicide bomber method config:
 		_csbVestIed = "V_HarnessOGL_gry";     // ....... which vest will contain the explosive, the vest name.
 		_csbVestIedAmmo = "Rocket_04_HE_F";     // ..... what's classic vest's explosive, the ammo name.
-		_csbActRange = 80;     // ...................... suicidal in this method detects any target in this range. Default is 80 meters.
-		_csbDeadRange = 10;     // ..................... Limit range from the target to suicidal detonate their explosives. Default is 10 meters.
+		_csbActRange    = 80;     // ................... suicidal in this method detects any target in this range. Default is 80 meters.
+		_csbDeadRange   = 10;     // ................... Limit range from the target to suicidal detonate their explosives. Default is 10 meters.
 
 
-// CORE / DON'T CHANGE ANYTHING BELOW:
+// CORE / TRY TO DO NOT CHANGE ANYTHING BELOW:
 
 	// General:
 		_suicidal enableDynamicSimulation false;     // .............. prevents the suicidal from having the feature turned on.
@@ -142,7 +142,7 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 		{
 			_isSignalOn = true;     // has signal.		
 			
-			if ( !(_suicidal in _vbied) and (_weldedDoors == false)) then     // if suicidal is not into vbied, and vbied isn't its doors welded, then...
+			if ( !(_suicidal in _vbied) and (_weldedDoors == false)) then     // if suicidal is NOT into vbied, and vbied isn't its doors welded, then...
 			{
 				_wp = group _suicidal addWaypoint [position _vbied, 0];     // creating the waypoint to vbied;
 				_wp waypointAttachVehicle _vbied;     // creating the waypoint to vbied;
@@ -205,10 +205,19 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 								
 			} else     // if suicidal is on foot, do...
 			{
-				// Trying "to fix" an Arma 3 annoying behavier that makes units leave the veh when it's brutally attacked: 
+				// Trying "to fix" an Arma 3 annoying behavior that makes units leave the veh when it's brutally attacked: 
 				if (_onboardForever == true) then     // if suicidal already in vbied but they try to get out, so...
 				{
-					_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's position, boom!
+					_bNorth = _vbied getRelPos [8,0];     // adding Xm from north position of the vbied.
+					_bEast 	= _vbied getRelPos [8,90];     // adding Xm from east position of the vbied. 
+					_bSouth	= _vbied getRelPos [8,180];     // adding Xm from south position of the vbied.  
+					_bWest 	= _vbied getRelPos [8,270];     // adding Xm from west position of the vbied. 
+					_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's top position, boom!
+					_vbiedAmmo createVehicle _bNorth;     // a bomb is created at the vbied's north position, boom! 
+					_vbiedAmmo createVehicle _bEast;     // a bomb is created at the vbied's east position, boom! 
+					_vbiedAmmo createVehicle _bSouth;     // a bomb is created at the vbied's south position, boom!
+					_vbiedAmmo createVehicle _bWest;     // a bomb is created at the vbied's west position, boom! 				
+					
 					_vbiedDetonated = true;     // sets vbied as detonated.
 					deleteVehicleCrew _vbied;     // the vbied crew team is deleted.
 					deleteVehicle _suicidal;     // delete the suicidal that jumps out.						
@@ -228,12 +237,22 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 			// DEAD RANGE			
 			if ((_vbied distance _targetNearest) <= _vbiedDeadRange) then     // if distance between vbied and target is less than or equal to XXm, then...
 			{	
-				// if the suicide is conscious, has trigger signal, is uncuffed and vbied has not already exploded:
+				// if the suicide is conscious, has trigger signal, is uncuffed and vbied has NOT already exploded:
 				if ((lifeState _suicidal == "HEALTHY") and (_isSignalOn == true) and (_isSuicidalCuffed == false) and (_vbiedDetonated == false)) then     // then...
 				{
 					_suicidal directSay _deathShout;     // suicidal screams.
 					sleep 0.3;     // waits a while before the next action.
-					_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's position, boom!
+					
+					_bNorth = _vbied getRelPos [8,0];     // adding Xm from north position of the vbied.
+					_bEast 	= _vbied getRelPos [8,90];     // adding Xm from east position of the vbied. 
+					_bSouth	= _vbied getRelPos [8,180];     // adding Xm from south position of the vbied.  
+					_bWest 	= _vbied getRelPos [8,270];     // adding Xm from west position of the vbied. 
+					_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's top position, boom!
+					_vbiedAmmo createVehicle _bNorth;     // a bomb is created at the vbied's north position, boom! 
+					_vbiedAmmo createVehicle _bEast;     // a bomb is created at the vbied's east position, boom! 
+					_vbiedAmmo createVehicle _bSouth;     // a bomb is created at the vbied's south position, boom!
+					_vbiedAmmo createVehicle _bWest;     // a bomb is created at the vbied's west position, boom! 
+					
 					_vbiedDetonated = true;     // sets vbied as detonated.
 					
 					if (_suicidal in _vbied) then     // if suicidal inside vbied, so...
@@ -245,7 +264,7 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 				};
 			};
 		};
-	} else     // if the suicidal is not alive, do:
+	} else     // if the suicidal is NOT alive, do:
 	{
 		_suicidal directSay "";     // shut up.
 	};
@@ -276,7 +295,17 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 		if ((damage _vbied) > 0.9) then     // if the vbied is about to blows up, then...
 		{
 			sleep 0.3;     // waits a while before the next action.
-			_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's position, boom!
+			
+			_bNorth = _vbied getRelPos [8,0];     // adding Xm from north position of the vbied.
+			_bEast 	= _vbied getRelPos [8,90];     // adding Xm from east position of the vbied. 
+			_bSouth	= _vbied getRelPos [8,180];     // adding Xm from south position of the vbied.  
+			_bWest 	= _vbied getRelPos [8,270];     // adding Xm from west position of the vbied. 
+			_vbiedAmmo createVehicle getPos _vbied;     // a bomb is created at the vbied's top position, boom!
+			_vbiedAmmo createVehicle _bNorth;     // a bomb is created at the vbied's north position, boom! 
+			_vbiedAmmo createVehicle _bEast;     // a bomb is created at the vbied's east position, boom! 
+			_vbiedAmmo createVehicle _bSouth;     // a bomb is created at the vbied's south position, boom!
+			_vbiedAmmo createVehicle _bWest;     // a bomb is created at the vbied's west position, boom! 
+			
 			_vbiedDetonated = true;     // sets vbied as detonated.
 		
 			if (_suicidal in _vbied) then     // if suicidal is inside vbied then...
@@ -287,7 +316,7 @@ While {_suicidalMethod == 1} do     // Looping while: se doctrine method is vbie
 			sleep 0.1;     // execution breath.
 			_suicidalMethod != 1;     // Stoping the While/loop of this method.
 		};
-	} else     // if the vbied is not working anymore, do...
+	} else     // if the vbied is NOT working anymore, do...
 	{
 		if (_vbiedNoWreck == true) then     // if editor choose to remove the vbied wreck immediately after explosion, so...
 		{
@@ -327,7 +356,7 @@ While {_suicidalMethod == 2} do     // Looping while: se doctrine method is dead
 			//removeUniform _suicidal;     // remove the uniform.
 		
 		_suicidal addVest _dmtVestIed;     // add the correct suicidal vest.
-		_suicidal allowFleeing 0;     // suicidal is not panic.
+		_suicidal allowFleeing 0;     // suicidal is NOT panic.
 		
 		if (_suicidalTargets != 3) then     // if the suicidal focus is NOT just one special target, so...
 		{
@@ -428,7 +457,7 @@ While {_suicidalMethod == 2} do     // Looping while: se doctrine method is dead
 			};
 		};
 		
-	} else     // if the suicidal is not alive, do...
+	} else     // if the suicidal is NOT alive, do...
 	{
 		if ((_isDmtVestActivated == true) and (_dmtVestDetonated == false)) then     // if the vest's detonator is activated, and if the vest hasn't already detonated, then...
 		{
@@ -474,7 +503,7 @@ While {_suicidalMethod == 3} do     // Looping while: se doctrine method is clas
 			//removeUniform _suicidal;     // remove the uniform.
 		
 		_suicidal addVest _csbVestIed;     // add the correct suicidal vest.
-		_suicidal allowFleeing 0;     // suicidal is not panic.
+		_suicidal allowFleeing 0;     // suicidal is NOT panic.
 		
 		if (_suicidalTargets != 3) then     // if the suicidal focus is NOT just one special target, so...
 		{

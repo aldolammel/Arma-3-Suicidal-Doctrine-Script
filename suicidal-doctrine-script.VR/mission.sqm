@@ -12,14 +12,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3;
+		nextID=4;
 	};
 	class Camera
 	{
-		pos[]={2617.6975,38.284592,2852.6941};
-		dir[]={-0.69209242,-0.45524994,-0.56013906};
-		up[]={-0.35387227,0.89036369,-0.28640348};
-		aside[]={-0.6291126,0,0.77731431};
+		pos[]={2605.062,26.802502,2913.5276};
+		dir[]={-0.61427146,-0.29833126,-0.7305268};
+		up[]={-0.19199988,0.95446211,-0.228337};
+		aside[]={-0.76538056,-2.8972863e-008,0.64357871};
 	};
 };
 binarizationWanted=0;
@@ -361,7 +361,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2446.5933,5.0014391,2750.2126};
+						position[]={2432.8784,5.0014391,2728.3372};
 						angles[]={0,1.2721055,0};
 					};
 					side="East";
@@ -450,6 +450,27 @@ class Mission
 			class Attributes
 			{
 			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=9;
+						item1=10;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
 			id=8;
 		};
 		class Item1
@@ -460,8 +481,8 @@ class Mission
 				position[]={2432.8784,6.8715067,2728.3093};
 				angles[]={0,1.5349473,0};
 			};
-			side="Empty";
-			flags=4;
+			side="East";
+			flags=6;
 			class Attributes
 			{
 				fuel=0.053148482;
