@@ -130,4 +130,6 @@ https://forums.bohemia.net/forums/topic/237502-release-suicidal-doctrine-script/
 - For all methods, the suicidal has 4 types of available enemy targets: attack anyone; attack any playable units; attack only players; and attack only a chosen one;
 - In the VBIED method, the editor got the option to turn off the vehicle wreck immediately after the detonation to avoid wreck collision for any reason;
 - Fixed: In the VBIED method, once inside the vehicle with welded doors, the suicidal will never ramp out.
- 
+
+**v1.0 - Feb, 1st 2022**
+- hello world.
